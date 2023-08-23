@@ -11,14 +11,14 @@ export default class Team {
     return {
       next() {
         index += 1;
-        if (index > teamPlayers.length) {
+        if (index < teamPlayers.length) {
           return {
-            done: true,
+            done: false,
+            value: teamPlayers[index - 1],
           };
         }
         return {
-          done: false,
-          value: teamPlayers[index - 1],
+          done: true,
         };
       },
     };
